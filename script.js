@@ -1,6 +1,5 @@
 let intentos = 6;
-const diccionario = ['APPLE','HURLS','WINGS','YOUTH','HOUSE','MOUSE','TRUTH','GLASS','TRUST','START'];
-const palabra = diccionario[Math.floor(Math.random() * diccionario.length)];
+let palabra = "";
 
 window.addEventListener('load', init)
 
@@ -9,6 +8,22 @@ function init(){
 }
 
 const button = document.getElementById("guess-button");
+
+const API = "https://random-word-api.herokuapp.com/word?length=5"
+
+fetch(API)
+    .then((response)=> response.json())
+    .then((response)=> {
+        palabra = response[0].toUpperCase();
+        button.disabled = false;
+        console.log (palabra);
+    })
+    .catch((err)=>{
+        console.log(err);
+        let random = Math.floor(random() * LIBRERO.length);
+        palabra = LIBRERO[random];
+        button.disabled = false;
+});
 
 function intentar(){
     
@@ -73,8 +88,6 @@ const GRID = document.getElementById("grid");
 const ROW = document.createElement('div');
 ROW.className = 'row';
 
-
-
-
+console.log(palabra);
 
 
