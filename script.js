@@ -27,11 +27,11 @@ function intentar(){
 
         if(INTENTO[i] === palabra[i]){
             SPAN.innerHTML = INTENTO[i];
-            SPAN.style.backgroundColor = '#79b851';
+            SPAN.style.backgroundColor = '#74b72e';
         
         }else if(palabra.includes(INTENTO[i])){
             SPAN.innerHTML = INTENTO[i];
-            SPAN.style.backgroundColor = '#fff52d';
+            SPAN.style.backgroundColor = '#ffff00';
         }else{
             SPAN.innerHTML = INTENTO[i];
             SPAN.style.backgroundColor = '#a7a7a7';
